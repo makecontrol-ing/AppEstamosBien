@@ -1,142 +1,252 @@
-/* ========== Sección de respiración ========== */
+/* === Variables y reset === */
 :root {
-  --breath-bg: #e8f5e9;
-  --breath-circle: #81c784;
-  --breath-circle-active: #4caf50;
-  --breath-text: #2e7d32;
-  --breath-btn-bg: #a5d6a7;
-  --breath-btn-hover: #66bb6a;
-  --breath-card: #ffffff;
-  --border-radius: 16px;
+    --bg: #fef9f3;
+    --card-bg: #ffffff;
+    --text: #4a3f35;
+    --text-light: #7a6e63;
+    --primary: #7d9b76;      /* verde salvia */
+    --primary-light: #b6cda9;
+    --accent: #e6b89c;       /* melocotón */
+    --accent-soft: #f9e4d1;
+    --shadow: 0 6px 18px rgba(0,0,0,0.06);
+    --radius: 20px;
+    --font: 'Nunito', 'Segoe UI', system-ui, sans-serif;
 }
 
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 1rem;
+    max-width: 500px;
+    margin: auto;
+}
+
+/* Header */
+.app-header {
+    text-align: center;
+    padding: 2rem 0 1rem;
+}
+.app-logo {
+    font-size: 2rem;
+    color: var(--primary);
+    letter-spacing: -0.5px;
+}
+.app-tagline {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+.welcome-box {
+    margin: 0.5rem 0 1rem;
+}
+.name-input {
+    border: none;
+    border-bottom: 2px solid var(--primary-light);
+    background: transparent;
+    font-size: 1.1rem;
+    padding: 0.4rem 0.2rem;
+    width: 70%;
+    text-align: center;
+    color: var(--text);
+    outline: none;
+    font-family: var(--font);
+}
+.name-input::placeholder {
+    color: var(--text-light);
+    opacity: 0.7;
+}
+.welcome-message {
+    display: block;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 0.5rem;
+    font-size: 1.3rem;
+}
+
+/* Cards */
+.card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+}
+.card h2 {
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+/* Botones generales */
+.primary-btn, .breath-btn, .mood-btn {
+    background: var(--primary-light);
+    border: none;
+    border-radius: 12px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    font-family: var(--font);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.primary-btn:hover, .breath-btn:hover, .mood-btn:hover {
+    background: var(--primary);
+}
+.secondary-btn {
+    background: var(--accent-soft);
+    color: var(--text);
+    margin-top: 0.8rem;
+}
+.icon-btn {
+    background: transparent;
+    border: 1.5px solid var(--primary-light);
+    border-radius: 12px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    color: var(--text);
+    cursor: pointer;
+    font-family: var(--font);
+    transition: all 0.2s;
+}
+.icon-btn:hover {
+    background: var(--primary-light);
+    color: white;
+}
+
+/* Mood section */
+.mood-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin: 1.5rem 0 1rem;
+}
+.mood-btn {
+    background: var(--accent-soft);
+    color: var(--text);
+    text-align: center;
+    justify-content: center;
+    padding: 1rem 0.5rem;
+    border-radius: 16px;
+}
+.mood-btn:active, .mood-btn.selected {
+    background: var(--primary);
+    color: white;
+    transform: scale(0.97);
+}
+.mood-feedback {
+    text-align: center;
+    font-weight: 500;
+    color: var(--primary);
+    margin: 0.5rem 0;
+}
+.streak-info {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+/* Respiración (ya tenías estos estilos, añadimos alguno) */
 .breath-section {
-  background: var(--breath-card);
-  border-radius: var(--border-radius);
-  padding: 2rem 1.5rem;
-  margin: 1.5rem auto;
-  max-width: 420px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  text-align: center;
-  font-family: 'Segoe UI', system-ui, sans-serif;
+    /* hereda de .card */
 }
-
-.breath-title {
-  font-size: 1.5rem;
-  color: var(--breath-text);
-  margin-bottom: 0.5rem;
-}
-
-.breath-subtitle {
-  font-size: 0.95rem;
-  color: #555;
-  margin-bottom: 2rem;
-}
-
-.breath-circle-container {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  margin: 0 auto 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .breath-circle {
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(circle at 30% 30%, #a5d6a7, #4caf50);
-  border-radius: 50%;
-  will-change: transform;
-  transition: transform 0.1s linear;
-  box-shadow: 0 0 30px rgba(76,175,80,0.3);
+    /* mantén tus estilos, solo ajusta colores si quieres */
+    background: radial-gradient(circle at 30% 30%, #c8e6c9, #81c784);
+    box-shadow: 0 0 30px rgba(129,199,132,0.4);
+}
+.breath-complete-msg {
+    font-size: 1rem;
+    color: var(--primary);
+    margin: 1rem 0 0.5rem;
 }
 
-.breath-instruction {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #1b5e20;
-  min-height: 3rem;
-  margin-bottom: 1rem;
-  transition: opacity 0.2s;
+/* Diario gratitud */
+.journal-question {
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 0.8rem;
+}
+.gratitude-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid var(--primary-light);
+    border-radius: 12px;
+    font-family: var(--font);
+    font-size: 1rem;
+    resize: vertical;
+    margin-bottom: 0.8rem;
+    background: #fdfdf5;
+}
+.gratitude-list {
+    list-style: none;
+    margin-top: 1rem;
+}
+.gratitude-list li {
+    padding: 0.6rem;
+    border-bottom: 1px dashed var(--primary-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.delete-btn {
+    background: none;
+    border: none;
+    color: #d97d7d;
+    cursor: pointer;
+    font-size: 1.2rem;
 }
 
-.breath-phase-detail {
-  font-size: 1rem;
-  color: #4a4a4a;
-  margin-bottom: 1.5rem;
+/* Afirmaciones */
+.affirmation-box {
+    background: var(--accent-soft);
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin: 1rem 0;
+    text-align: center;
+}
+.affirmation-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 1rem;
+    min-height: 3em;
+}
+.affirmation-actions {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+}
+.favorites-list {
+    margin-top: 1.5rem;
+}
+.favorites-list h3 {
+    font-size: 1rem;
+    color: var(--text-light);
+}
+.favorites-list ul {
+    list-style: none;
+    padding-left: 0;
+}
+.favorites-list li {
+    padding: 0.4rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.breath-controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1.5rem;
-}
-
-.breath-btn {
-  background: var(--breath-btn-bg);
-  border: none;
-  border-radius: 12px;
-  padding: 0.8rem 2rem;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #1b5e20;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.breath-btn:hover {
-  background: var(--breath-btn-hover);
-}
-
-.breath-btn:active {
-  transform: scale(0.96);
-}
-
-.breath-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.breath-select {
-  padding: 0.7rem 1.2rem;
-  border: 2px solid #c8e6c9;
-  border-radius: 12px;
-  background: white;
-  font-size: 1rem;
-  color: #2e7d32;
-  outline: none;
-  cursor: pointer;
-}
-
-.breath-counter {
-  font-size: 1rem;
-  color: #6d6d6d;
-  margin-bottom: 1rem;
-}
-
-@media (max-width: 480px) {
-  .breath-section {
-    padding: 1.5rem 1rem;
-  }
-  .breath-circle-container {
-    width: 160px;
-    height: 160px;
-  }
-  .breath-circle {
-    width: 80px;
-    height: 80px;
-  }
-  .breath-instruction {
-    font-size: 1.5rem;
-  }
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
 }

@@ -1,35 +1,97 @@
 <!DOCTYPE html>
-<html lang="es">  
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EstarBien</title>
-    <link rel="stylesheet" href="Css/styles.css">  
+    <title>EstarBien · Mi espacio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#f9f1e0">
 </head>
 <body>
-<div class="breath-section">
-  <h2 class="breath-title">🌿 Respiración guiada Bienestar Universitario Facultad de Minas</h2>
-  <p class="breath-subtitle">Encuentra calma en 1 minuto</p>
+    <header class="app-header">
+        <h1 class="app-logo">&#127807; EstarBien</h1>
+        <p class="app-tagline">Tu espacio de calma y crecimiento</p>
+        <div class="welcome-box" id="welcomeBox">
+            <input type="text" id="nameInput" class="name-input" placeholder="Tu nombre (opcional)" aria-label="Escribe tu nombre">
+            <span class="welcome-message" id="welcomeMessage"></span>
+        </div>
+    </header>
 
-  <div class="breath-circle-container">
-    <div class="breath-circle" id="breathCircle"></div>
-  </div>
+    <main class="app-main">
+        <!-- Registro de energía -->
+        <section class="card" id="moodSection">
+            <h2>&#9728;&#65039; ¿Cómo está tu energía hoy?</h2>
+            <div class="mood-options" id="moodOptions">
+                <button class="mood-btn" data-mood="energico">&#127774; Con fuerza</button>
+                <button class="mood-btn" data-mood="tranquilo">&#9925; Tranquilo</button>
+                <button class="mood-btn" data-mood="cansado">&#127783; Necesito recargar</button>
+                <button class="mood-btn" data-mood="esperanzado">&#127752; Esperanzado</button>
+            </div>
+            <p class="mood-feedback" id="moodFeedback"></p>
+            <div class="streak-info" id="streakInfo"></div>
+        </section>
 
-  <div class="breath-instruction" id="breathInstruction">Inhala</div>
-  <div class="breath-phase-detail" id="breathPhaseDetail"></div>
+        <!-- Respiración guiada -->
+        <section class="card" id="breathSection">
+            <h2>&#127807; Respira conmigo</h2>
+            <p class="breath-subtitle">Encuentra calma en 1 minuto</p>
+            <div class="breath-circle-container">
+                <div class="breath-circle" id="breathCircle"></div>
+            </div>
+            <div class="breath-instruction" id="breathInstruction">Inhala</div>
+            <div class="breath-phase-detail" id="breathPhaseDetail"></div>
+            <div class="breath-counter" id="breathCounter">Ciclo 0/4</div>
+            <div class="breath-controls">
+                <select class="breath-select" id="patternSelect">
+                    <option value="4-7-8">&#127754; 4-7-8 (olas)</option>
+                    <option value="4-4-4">&#127811; 4-4-4 (hoja)</option>
+                </select>
+                <button class="breath-btn" id="breathStartBtn">
+                    <span id="startIcon">&#9654;</span> <span id="startText">Iniciar</span>
+                </button>
+            </div>
+            <div id="postBreathActions" style="display:none;">
+                <p class="breath-complete-msg">&#10024; Hoy activaste tu calma</p>
+                <button class="breath-btn secondary-btn" id="linkToMoodBtn">¿Cómo te sientes ahora?</button>
+            </div>
+        </section>
 
-  <div class="breath-counter" id="breathCounter">Ciclo 0/4</div>
+        <!-- Diario de gratitud -->
+        <section class="card" id="journalSection">
+            <h2>&#10084;&#65039; Mi momento de agradecer</h2>
+            <p class="journal-question">¿Qué pequeño detalle te hizo sonreír hoy?</p>
+            <textarea id="gratitudeInput" class="gratitude-input" placeholder="Hoy agradezco que..." rows="2"></textarea>
+            <button class="primary-btn" id="saveGratitudeBtn">&#127811; Guardar</button>
+            <ul class="gratitude-list" id="gratitudeList"></ul>
+        </section>
 
-  <div class="breath-controls">
-    <select class="breath-select" id="patternSelect">
-      <option value="4-7-8">🌊 4-7-8 (relajante)</option>
-      <option value="4-4-4">🍃 4-4-4 (equilibrio)</option>
-    </select>
-    <button class="breath-btn" id="breathStartBtn">
-      <span id="startIcon">▶</span> <span id="startText">Iniciar</span>
-    </button>
-  </div>
-</div>
-<script src="js/breathing.js" defer></script>    
+        <!-- Afirmaciones / micro-retos -->
+        <section class="card" id="tipsSection">
+            <h2>&#128172; Elige una afirmación que te fortalezca</h2>
+            <div class="affirmation-box" id="affirmationBox">
+                <p class="affirmation-text" id="affirmationText"></p>
+                <div class="affirmation-actions">
+                    <button class="icon-btn" id="newAffirmationBtn">&#127811; Nueva</button>
+                    <button class="icon-btn" id="favoriteAffirmationBtn">&#11088; Guardar</button>
+                </div>
+            </div>
+            <div class="favorites-list" id="favoritesList">
+                <h3>Tus favoritas</h3>
+                <ul id="favoriteAffirmations"></ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <p>&#127807; Cultivando tu bienestar, un día a la vez</p>
+    </footer>
+
+    <script src="js/pwa.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/mood.js"></script>
+    <script src="js/journal.js"></script>
+    <script src="js/breathing.js"></script>
+    <script src="js/tips.js"></script>
 </body>
 </html>

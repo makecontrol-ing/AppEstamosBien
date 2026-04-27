@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="css/styles.css" />
+<div class="breath-section">
+  <h2 class="breath-title">🌿 Respiración guiada</h2>
+  <p class="breath-subtitle">Encuentra calma en 1 minuto</p>
+
+  <div class="breath-circle-container">
+    <div class="breath-circle" id="breathCircle"></div>
+  </div>
+
+  <div class="breath-instruction" id="breathInstruction">Inhala</div>
+  <div class="breath-phase-detail" id="breathPhaseDetail"></div>
+
+  <div class="breath-counter" id="breathCounter">Ciclo 0/4</div>
+
+  <div class="breath-controls">
+    <select class="breath-select" id="patternSelect">
+      <option value="4-7-8">🌊 4-7-8 (relajante)</option>
+      <option value="4-4-4">🍃 4-4-4 (equilibrio)</option>
+    </select>
+    <button class="breath-btn" id="breathStartBtn">
+      <span id="startIcon">▶</span> <span id="startText">Iniciar</span>
+    </button>
+  </div>
+</div>
+
+<!-- Carga del script (al final del body, antes de </body>) -->
+<script src="js/breathing.js" defer></script>

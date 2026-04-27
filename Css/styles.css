@@ -1,0 +1,142 @@
+/* ========== Sección de respiración ========== */
+:root {
+  --breath-bg: #e8f5e9;
+  --breath-circle: #81c784;
+  --breath-circle-active: #4caf50;
+  --breath-text: #2e7d32;
+  --breath-btn-bg: #a5d6a7;
+  --breath-btn-hover: #66bb6a;
+  --breath-card: #ffffff;
+  --border-radius: 16px;
+}
+
+.breath-section {
+  background: var(--breath-card);
+  border-radius: var(--border-radius);
+  padding: 2rem 1.5rem;
+  margin: 1.5rem auto;
+  max-width: 420px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.breath-title {
+  font-size: 1.5rem;
+  color: var(--breath-text);
+  margin-bottom: 0.5rem;
+}
+
+.breath-subtitle {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.breath-circle-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.breath-circle {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at 30% 30%, #a5d6a7, #4caf50);
+  border-radius: 50%;
+  will-change: transform;
+  transition: transform 0.1s linear;
+  box-shadow: 0 0 30px rgba(76,175,80,0.3);
+}
+
+.breath-instruction {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1b5e20;
+  min-height: 3rem;
+  margin-bottom: 1rem;
+  transition: opacity 0.2s;
+}
+
+.breath-phase-detail {
+  font-size: 1rem;
+  color: #4a4a4a;
+  margin-bottom: 1.5rem;
+}
+
+.breath-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.breath-btn {
+  background: var(--breath-btn-bg);
+  border: none;
+  border-radius: 12px;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #1b5e20;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.breath-btn:hover {
+  background: var(--breath-btn-hover);
+}
+
+.breath-btn:active {
+  transform: scale(0.96);
+}
+
+.breath-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.breath-select {
+  padding: 0.7rem 1.2rem;
+  border: 2px solid #c8e6c9;
+  border-radius: 12px;
+  background: white;
+  font-size: 1rem;
+  color: #2e7d32;
+  outline: none;
+  cursor: pointer;
+}
+
+.breath-counter {
+  font-size: 1rem;
+  color: #6d6d6d;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 480px) {
+  .breath-section {
+    padding: 1.5rem 1rem;
+  }
+  .breath-circle-container {
+    width: 160px;
+    height: 160px;
+  }
+  .breath-circle {
+    width: 80px;
+    height: 80px;
+  }
+  .breath-instruction {
+    font-size: 1.5rem;
+  }
+}

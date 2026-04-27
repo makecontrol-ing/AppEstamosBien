@@ -250,3 +250,65 @@ body {
     color: var(--text-light);
     font-size: 0.9rem;
 }
+/* === Footer institucional === */
+.app-footer {
+    background: var(--card-bg, #ffffff);
+    border-radius: var(--radius, 20px);
+    padding: 2rem 1.5rem 1.8rem;
+    margin: 0 auto;
+    box-shadow: var(--shadow, 0 6px 18px rgba(0,0,0,0.06));
+    text-align: center;
+    border-top: 3px solid var(--primary-light, #b6cda9);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-message {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text, #4a3f35);
+    margin: 0;
+    font-style: italic;
+}
+
+.footer-image-container {
+    width: 100%;
+    max-width: 380px;
+    margin: 0.5rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #ffffff;
+    padding: 0.5rem;
+    border: 1px solid rgba(125, 155, 118, 0.2); /* verde salvia suave */
+    transition: border-color 0.3s ease;
+}
+
+.footer-image-container:hover {
+    border-color: var(--primary-light, #b6cda9);
+}
+
+.footer-institutional {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    opacity: 0.92;
+    filter: grayscale(0.1);
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.footer-institutional:hover {
+    opacity: 1;
+    filter: grayscale(0);
+}
+
+.footer-copy {
+    font-size: 0.8rem;
+    color: var(--text-light, #7a6e63);
+    margin: 0.2rem 0 0;
+}

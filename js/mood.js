@@ -81,7 +81,7 @@ class MoodTracker {
         }
 
         if (streak > 0) {
-            this.streakInfo.textContent = `&#127807; ${streak} día${streak > 1 ? 's' : ''} seguido cuidándote`;
+            this.streakInfo.textContent = `🌿 ${streak} día${streak > 1 ? 's' : ''} seguido cuidándote`;
         } else {
             this.streakInfo.textContent = '';
         }

@@ -45,7 +45,7 @@ class GratitudeJournal {
             const li = document.createElement('li');
             li.innerHTML = `
                 <span>${entry.text} <small style="color:var(--text-light)">${entry.date}</small></span>
-                <button class="delete-btn" data-id="${entry.id}">&#10006;</button>
+                <button class="delete-btn" data-id="${entry.id}">✖️</button>
             `;
             this.list.appendChild(li);
         });
